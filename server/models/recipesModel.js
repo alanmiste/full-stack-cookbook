@@ -13,6 +13,9 @@ const recipeSchema = new Schema({
     },
     published : {
         type : Boolean
+    },
+    category : {
+        type : String
     }
 })
 

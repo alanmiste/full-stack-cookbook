@@ -1,4 +1,4 @@
-const express = require('express') //import express
+/* const express = require('express') //import express
 
 require('dotenv').config();
 
@@ -20,4 +20,23 @@ app
 
 
 const port = process.env.PORT || 8080;
-app.listen(port, ()=> console.log('the server is running at port: ', port))
+app.listen(port, ()=> console.log('the server is running at port: ', port)) */
+
+// 1. import express and router
+const express = require('express')
+require('dotenv').config()
+
+// 2. create server
+const app = express()
+
+const connectDB = require('./config/db')
+connectDB()
+
+/**
+ * DEFINE ROUTES
+ */
+ app.use('/recipes', require('./api/recipes'));
+ // 4. listen to some port
+ 
+ const port = process.env.PORT || 8008;
+ app.listen(port, () => console.log('Server is UP and Running at port: ' + port))
