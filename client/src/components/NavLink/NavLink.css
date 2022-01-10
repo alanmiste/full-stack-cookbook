@@ -1,0 +1,29 @@
+
+.navLinkText{
+    width: 6rem;
+    height: 2rem;
+    background-color: #F5F3F0;
+    border: 2px #E1DFDD solid;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family:'Times New Roman', Times, serif;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #242424;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navLinkText:hover{
+    background-color: #FEBD2E;
+    transition: all ease 0.75s;
+    cursor: pointer;
+}
+
+.navRoot{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
