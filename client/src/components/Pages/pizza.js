@@ -1,7 +1,7 @@
 import React from "react";
-import axios from "axios";
 import { useState, useContext} from 'react'
 import {RecipeContext} from '../Context/context'
+import Recipes from '../Recipes/recipes'
 
 export default function Pizza(){
 
@@ -16,13 +16,13 @@ export default function Pizza(){
         // console.log(recipes)
     }
     useEffect(()=> handelClick(),[]) */
-    const {recipes} = useContext(RecipeContext) 
+    // const {recipes} = useContext(RecipeContext) 
    
     return(
         <div>
             Pizza
-            {/* <button onClick={handelClick}>click me</button> */}
-            <div>{recipes.map((item) => item.category =='pizza' ?
+            <Recipes categoryType={'pizza'} />
+            {/* <div>{recipes.map((item) => item.category =='pizza' ?
             <ul>
                 <li><h3>{item.title}</h3></li>
                 <li>{item.cooktime}</li>
@@ -34,7 +34,7 @@ export default function Pizza(){
                 </ul>
             </ul>
             :<></>)}
-            </div>
+            </div> */}
         </div>
     )
 }
