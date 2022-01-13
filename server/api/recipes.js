@@ -17,7 +17,8 @@ router.get('/', async (req, res) => {
 
     console.log('Find route')
 
-    const data = await Recipes.find({category: req.query.category})
+    // const data = await Recipes.find({category: req.query.category})
+    const data = await Recipes.find()
 
     console.log(data)
    
