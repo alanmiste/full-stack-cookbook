@@ -1,36 +1,31 @@
-import React, { createContext, useState } from 'react'
+/* import React, { createContext, useState, useEffect } from 'react'
+import axios from 'axios'
+import { TopologyDescription } from 'mongodb';
 
 export const RecipeContext = createContext()
 
 
 export default function RecipeProvider({children}) {
 
-    // const [articles, setArticles] = useState(
-    //     [
-    //     {id:1, title:'title1', body: 'body1'},
-    //     {id:2, title:'title2', body: 'body2'},
-    //     {id:3, title:'title3', body: 'body3'},
-    //     {id:4, title:'title4', body: 'body4'}
-    // ])
 
-    // const saveArticle = article => {
+    const [recipes, setRecipes]= useState([]);
 
-    //     const newArticle = {
-    //         id: Math.floor(Math.random() * 100),
-    //         title: article.title,
-    //         body: article.body
-    //     }
+    const pullRecipes = async ()=>{
+        console.log('Hello from pullRecipes/context')
 
-    //     setArticles([
-    //         ...articles,
-    //         newArticle
-    //     ])
-    // }
+        const response = await axios.get('/recipes?category=pizza')
+        setRecipes([...response.data])
+        console.log('data is: ',response.data)
+        // console.log(recipes)
+    }
+
+    // add useEffect to pull the recipes from DB when the page is loaded
+    // useEffect(()=> pullRecipes(),[])
 
     return (
         // <ArticleContext.Provider value = {{articles, saveArticle}}>
-        <ArticleContext.Provider>
+        <RecipeContext.Provider value = {{recipes, pullRecipes}}>
             {children}
-        </ArticleContext.Provider>
+        </RecipeContext.Provider>
     )
-}
+} */

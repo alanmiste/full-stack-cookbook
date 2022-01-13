@@ -16,6 +16,9 @@ const recipeSchema = new Schema({
     },
     category : {
         type : String
+    },
+    cooktime : {
+        type : String
     }
 })
 

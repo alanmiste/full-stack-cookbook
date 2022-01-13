@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import {useState} from 'react'
+import {useState, useContext, useEffect} from 'react'
+import {RecipeContext} from '../Context/context'
 
 export default function Pizza(){
 
@@ -14,10 +15,13 @@ export default function Pizza(){
         console.log('data is: ',response.data)
         // console.log(recipes)
     }
+    useEffect(()=> handelClick(),[])
+    // const {recipes} = useContext(RecipeContext) 
     return(
         <div>
             Pizza
-            <button onClick={handelClick}>click me</button>
+            {/* <button onClick={handelClick}>click me</button> */}
+            <div>{recipes?.map((item) =><li>{item.title}</li>)}</div>
         </div>
     )
 }
