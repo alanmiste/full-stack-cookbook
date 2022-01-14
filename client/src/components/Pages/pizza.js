@@ -22,19 +22,6 @@ export default function Pizza(){
         <div>
             Pizza
             <Recipes categoryType={'pizza'} />
-            {/* <div>{recipes.map((item) => item.category =='pizza' ?
-            <ul>
-                <li><h3>{item.title}</h3></li>
-                <li>{item.cooktime}</li>
-                <ul><h4>ingredient:</h4>
-                    {item.ingredient.map(item=>
-                      <li>
-                          {item}
-                      </li>  )}
-                </ul>
-            </ul>
-            :<></>)}
-            </div> */}
         </div>
     )
 }

@@ -4,6 +4,8 @@ import Home from "../components/Pages/home";
 import Pizza from "../components/Pages/pizza";
 import Dessert from "../components/Pages/dessert";
 import Noodle from "../components/Pages/noodle";
+import NotFound from '../components/Pages/NotFound'
+import OneRecipe from '../components/Pages/oneRecipe'
 
  
 export default function Routes() {
@@ -22,6 +24,12 @@ export default function Routes() {
             </MainLayout>
           </Route>
 
+          <Route path='/oneRecipe:id' exact >
+            <MainLayout>
+              <Route component={OneRecipe} />
+            </MainLayout>
+          </Route>
+
           <Route path='/dessert' exact >
             <MainLayout>
               <Route component={Dessert} />
@@ -30,6 +38,12 @@ export default function Routes() {
           <Route path='/noodle' exact >
             <MainLayout>
               <Route component={Noodle} />
+            </MainLayout>
+          </Route>
+
+          <Route exact>
+            <MainLayout>
+              <Route component={NotFound} />
             </MainLayout>
           </Route>
 
@@ -46,11 +60,7 @@ export default function Routes() {
 
           <Redirect from='/login' to='/users' /> 
 
-          <Route exact component={NotFound}>
-            <SimpleLayout>
-              <Route component={Users} />
-            </SimpleLayout>
-          </Route>*/}
+         */}
         </Switch>
 
         )
