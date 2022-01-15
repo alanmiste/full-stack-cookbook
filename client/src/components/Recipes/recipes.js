@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 
 export default function Recipes({ categoryType }) {
 
-    const { recipes } = useContext(RecipeContext) 
+    const { recipes } = useContext(RecipeContext) //fetch data from context.js
 
-    const [recipe, setRecipe] = useState([])
+    const [recipe, setRecipe] = useState([]) //this state to save recipes in it locally
 
     useEffect(() => {
         setRecipe([...recipes.filter(item => item.category === categoryType)])
+        //set the recipes in recipe after filtering it consider of category
     }, [])
 
 

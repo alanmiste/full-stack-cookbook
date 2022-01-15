@@ -5,24 +5,21 @@ import {RecipeContext} from '../Context/context'
 
 export default function OneRecipe(){
 
-    const {id} = useParams()
-    const { recipes } = useContext(RecipeContext)
+    const {id} = useParams() //to get the id from the url
+    const { recipes } = useContext(RecipeContext) //get data from context.js
 
-    console.log('this is id:',id )
-    console.log('this is _id:', recipes[0]._id)
-    
-    if(id == recipes[0]._id){
-        console.log('this is same')
-    }else{console.log('from else')}
-
-    const [recipe, setRecipe] = useState({})
+    const [recipe, setRecipe] = useState({}) //to save recipes in it locally depending on id
 
     useEffect(()=>{
-        const idx = recipes.findIndex(item => item._id === id)
+        const idx = recipes.findIndex(item => item._id === id) /* Comparison of item._id which is 
+        the base id for the recipe that comes from the database via context, 
+        and the id that comes from the link via url, and save the index of recipe resulting from 
+        the comparison in idx. */
+        //now idx = 1 or 2 or 3 or...., depends on the comparison result
         console.log('useEffect ', idx)
         setRecipe({...recipes[idx]})
     },[])
-    console.log(recipes)
+    console.log('this is recipe',recipe)
 
     return(
         <div>
@@ -33,7 +30,6 @@ export default function OneRecipe(){
                 }
             </div>
         </div>
-            {/* <Recipes recipeId={id} /> */}
         </div>
     )
 }
