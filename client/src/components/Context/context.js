@@ -32,12 +32,12 @@ export default function RecipeProvider({children}) {
     console.log('this is full array ',recipes)
 
     // add useEffect to pull the recipes from DB when the page is loaded
-    useEffect(()=> pullRecipes(),[])
+    
     // useEffect(()=> pullNoodle(),[])
 
     return (
         // <RecipeContext.Provider value = {{recipes, pullRecipes}}>
-        <RecipeContext.Provider value = {{recipes}}>
+        <RecipeContext.Provider value = {{recipes, pullRecipes}}>
             {children}
         </RecipeContext.Provider>
     )

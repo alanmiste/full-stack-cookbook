@@ -6,9 +6,14 @@ import Dessert from "../components/Pages/dessert";
 import Noodle from "../components/Pages/noodle";
 import NotFound from '../components/Pages/NotFound'
 import OneRecipe from '../components/Pages/oneRecipe'
-
+import { useEffect, useContext } from 'react'
+import {RecipeContext} from '../components/Context/context'
  
 export default function Routes() {
+
+  const {pullRecipes} = useContext(RecipeContext)
+  useEffect(()=> pullRecipes(),[])
+
     return (
        
         <Switch>
@@ -24,7 +29,7 @@ export default function Routes() {
             </MainLayout>
           </Route>
 
-          <Route path='/oneRecipe:id' exact >
+          <Route path='/oneRecipe/:id' exact >
             <MainLayout>
               <Route component={OneRecipe} />
             </MainLayout>
