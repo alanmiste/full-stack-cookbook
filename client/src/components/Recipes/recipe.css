@@ -1,0 +1,11 @@
+.recipeTitle{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+    margin: 20px;
+}
+
+.btn{
+    color:#FEBD2E;
+}

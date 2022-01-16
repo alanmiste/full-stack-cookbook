@@ -1,9 +1,9 @@
 .btn{
-    width: 100px;
+    width: 40%;
     background-color: #F5F3F0;
-    border: 2px #E1DFDD solid;
+    border: 2px #FEBD2E solid;
     border-radius: 15px;
-    font-size: 15px;
+    /* font-size: 15px; */
     font-family:'Times New Roman', Times, serif;
     margin-top: 10px;
 }
