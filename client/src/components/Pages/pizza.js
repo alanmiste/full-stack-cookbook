@@ -1,6 +1,6 @@
 import React from "react";
 import Recipes from '../Recipes/recipes'
-import './pizza.css'
+
 
 export default function Pizza(){
     return(

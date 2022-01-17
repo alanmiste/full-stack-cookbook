@@ -4,22 +4,23 @@ import './NavLink.css'
 import { FaPizzaSlice } from 'react-icons/fa';
 import { GiCakeSlice } from 'react-icons/gi';
 import { GiNoodles } from 'react-icons/gi';
+import { FiHome } from 'react-icons/fi';
 
 export default function Navigation() {
   return (
     <React.Fragment>
         <div className='navRoot'>
             <NavLink className='navLinkText' to="/">
-            Home 
+            <FiHome/>.  Home
             </NavLink>
             <NavLink className='navLinkText' to="/pizza">
-            <FaPizzaSlice/> Pizza 
+            <FaPizzaSlice/>.  Pizza 
             </NavLink>
             <NavLink className='navLinkText' to="/dessert">
-            <GiCakeSlice/> Dessert 
+            <GiCakeSlice/>.  Dessert 
             </NavLink>
             <NavLink className='navLinkText' to="/noodle">
-            <GiNoodles/> Noodle 
+            <GiNoodles/>.  Noodle 
             </NavLink>
         </div>
     </React.Fragment>

@@ -20,23 +20,10 @@ export default function RecipeProvider({children}) {
         // console.log(recipes)
     }
 
-    /* const pullNoodle = async ()=>{
-        console.log('Hello from pullNoodle/context')
+  
 
-        const response = await axios.get('/recipes?category=noodle')
-        setNoodle([...response.data])
-        console.log('data is: ',response.data)
-        // console.log(recipes)
-    }
- */
-    console.log('this is full array ',recipes)
-
-    // add useEffect to pull the recipes from DB when the page is loaded
-    
-    // useEffect(()=> pullNoodle(),[])
 
     return (
-        // <RecipeContext.Provider value = {{recipes, pullRecipes}}>
         <RecipeContext.Provider value = {{recipes, pullRecipes}}>
             {children}
         </RecipeContext.Provider>

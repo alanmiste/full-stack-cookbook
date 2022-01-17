@@ -34,3 +34,11 @@
     margin: 1vh;
 }
 
+.cardHeader{
+    color: var(--color-yellow);
+    font-size: 2em;
+}
+
+.cardTitle{
+    color: var(--color-yellow);
+}

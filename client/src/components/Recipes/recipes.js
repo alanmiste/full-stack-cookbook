@@ -2,12 +2,13 @@ import React from "react";
 import { useContext, useState, useEffect } from 'react'
 import { RecipeContext } from '../Context/context'
 import { Link } from "react-router-dom";
-// import Accordion from 'react-bootstrap/Accordion'
-import Placeholder from 'react-bootstrap/Placeholder'
 import Card from 'react-bootstrap/Card'
-
 import Button from '../Button/button'
 import './recipe.css'
+import { FaPizzaSlice } from 'react-icons/fa';
+import { GiCakeSlice } from 'react-icons/gi';
+import { GiNoodles } from 'react-icons/gi';
+
 
 export default function Recipes({ categoryType }) {
 
@@ -31,9 +32,9 @@ export default function Recipes({ categoryType }) {
                 style={{ width: '18rem' }}
                 className="mb-2"
             >
-                <Card.Header>{item.category}</Card.Header>
+                <Card.Header className="cardHeader">{item.category==='pizza' ? <FaPizzaSlice/> : item.category==='dessert' ? <GiCakeSlice/> : <GiNoodles/> }</Card.Header>
                 <Card.Body>
-                    <Card.Title> {item.title} </Card.Title>
+                    <Card.Title className="cardTitle"> {item.title} </Card.Title>
                     <Card.Text>
                         <div>{item.description}</div>
                         <div>Cook Time: {item.cooktime}</div>

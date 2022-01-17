@@ -24,22 +24,25 @@ export default function OneRecipe() {
     return (
         <div>
             <h4>{recipe.title}</h4>
-            <div><h5>Ingredient</h5>
-                {
-                recipe.ingredient?.map(
-                item=><ul>
-                    <li>{item}</li>
-                </ul>)
-                }
-            </div>
-            <div><h5>Preparation</h5>
-                {
-                    recipe.preparation?.map(
-                        item => <ul>
-                            <li> {item} </li>
-                        </ul>
+            <div className='recipeDetails'>
+                <div>
+                    <h5>Ingredient</h5>
+                    {
+                        recipe.ingredient?.map(
+                            item => <ul>
+                                <li>{item}</li>
+                            </ul>)
+                    }
+                </div>
+                <div><h5>Preparation</h5>
+                    {
+                        recipe.preparation?.map(
+                            item => <ul>
+                                <li> {item} </li>
+                            </ul>
                         )
-                }
+                    }
+                </div>
             </div>
         </div>
     )
