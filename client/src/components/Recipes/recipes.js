@@ -24,21 +24,6 @@ export default function Recipes({ categoryType }) {
     console.log('recipes component conext is', recipes)
     return (
         <div className="recipeTitle">{recipe?.map((item, id) => <div >
-
-            {/* <Accordion>
-                <Accordion.Item eventKey={id}>
-                    <Accordion.Header>{item.title}</Accordion.Header>
-                    <Accordion.Body>
-                        <div>
-                            This recipe will take about {item.cooktime} to be ready.
-                        </div>
-                        <Link key={item._id} to={`/oneRecipe/${item._id}`}>
-                            <Button name={'Read more...'} />
-                        </Link>
-                    </Accordion.Body>
-                </Accordion.Item>
-            </Accordion> */}
-
             <Card
                 bg={'dark'}
                 key={id}
@@ -50,11 +35,12 @@ export default function Recipes({ categoryType }) {
                 <Card.Body>
                     <Card.Title> {item.title} </Card.Title>
                     <Card.Text>
-                    This recipe will take about {item.cooktime} to be ready.
+                        <div>{item.description}</div>
+                        <div>Cook Time: {item.cooktime}</div>
                     </Card.Text>
                     <Link key={item._id} to={`/oneRecipe/${item._id}`}>
-                            <Button className={'btn'} name={'Read more'} />
-                        </Link>
+                        <Button className={'btn'} name={'Read more'} />
+                    </Link>
                 </Card.Body>
             </Card>
         </div>

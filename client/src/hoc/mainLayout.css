@@ -1,8 +1,11 @@
+@import '../components/vars.css';
+
 .mainLayout{
     display: flex;
     justify-content: center;
     /* align-items: center; */
     flex-direction: column;
+    flex-wrap: wrap;
     width: 100%;
 }
 .mlBody{
@@ -11,15 +14,20 @@
     margin: 5px;
 }
 .leftBar{
-    background-color: #F5F3F0;
-    /* display: flex;
-    justify-content: center;
-    flex-direction: row; */
-    height: 300px;
-    width: 200px;
+    background-color: var(--color-black);
+    width: 20%;
     border-radius: 10px;
     padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
 }
+
+
+
 .children{
     /* display: flex;
     justify-content: center; */
@@ -30,8 +38,8 @@
 }
 .topNav{
     width: 100%;
-    height: 50px;
     display: none;
+    background-color: var(--color-black);
 }
 
 @media only screen and (max-width: 600px ) {
@@ -39,8 +47,11 @@
         display: none;
     }
     .topNav{
-        display:inherit;
+        display:flex;
         flex-direction: row;
         flex-wrap: nowrap;
+        height:auto;
+        padding-bottom: 0.5em;
     }
+
 }

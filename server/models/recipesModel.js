@@ -19,6 +19,9 @@ const recipeSchema = new Schema({
     },
     cooktime : {
         type : String
+    },
+    description : {
+        type : String
     }
 })
 

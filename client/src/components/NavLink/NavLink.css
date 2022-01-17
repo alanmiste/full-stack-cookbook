@@ -1,22 +1,24 @@
+@import '../vars.css';
 
 .navLinkText{
-    width: 6rem;
-    height: 2rem;
-    background-color: #F5F3F0;
-    border: 2px #E1DFDD solid;
+    width: 10em;
+    height: 2em;
+    background-color: transparent;
+    border: 2px var(--color-yellow) solid;
     border-radius: 10px;
     font-size: 15px;
     font-family:'Times New Roman', Times, serif;
     margin-top: 10px;
     text-decoration: none;
-    color: #242424;
+    color: var(--color-yellow);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .navLinkText:hover{
-    background-color: #FEBD2E;
+    background-color: var(--color-yellow);
+    color: var(--color-black);
     transition: all ease 0.75s;
     cursor: pointer;
 }
@@ -27,3 +29,12 @@
     flex-wrap: wrap;
 }
 
+@media only screen and (max-width: 600px ) {
+    .navRoot{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        
+    }
+
+}

@@ -6,17 +6,17 @@ import Navigation from '../components/NavLink/NavLink'
 
 export default function MainLayout(props) {
     return <div className='mainLayout'>
-        <Header />
-        <div className='mlBody'>
-            <div className='leftBar'>
-                <LeftBar className='leftBar' />
-            </div>
-            <div className='children'>
-                <div className='topNav'><Navigation/></div>
-                {
-                    props.children
-                }
+                <Header />
+                <div className='mlBody'>
+                    <div className='leftBar'>
+                        <LeftBar className='leftBarBtn' />
+                    </div>
+                <div className='children'>
+                    <div className='topNav'><Navigation /></div>
+                    {
+                        props.children
+                    }
+                </div>
             </div>
         </div>
-    </div>
 }
