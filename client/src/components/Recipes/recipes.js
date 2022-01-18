@@ -22,7 +22,6 @@ export default function Recipes({ categoryType }) {
     }, [])
 
 
-    console.log('recipes component conext is', recipes)
     return (
         <div className="recipeTitle">{recipe?.map((item, id) => <div >
             <Card

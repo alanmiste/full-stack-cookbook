@@ -2,13 +2,13 @@
 
 .navLinkText{
     width: 10em;
-    height: 2em;
+    height: 4em;
     background-color: transparent;
     border: 2px var(--color-yellow) solid;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 1em;
     font-family:'Times New Roman', Times, serif;
-    margin-top: 10px;
+    margin-top: 1em;
     text-decoration: none;
     color: var(--color-yellow);
     display: flex;
@@ -26,15 +26,18 @@
 .navRoot{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 @media only screen and (max-width: 600px ) {
     .navRoot{
         display:flex;
         flex-direction: row;
+        justify-content: center;
+        align-items: center;
         flex-wrap: nowrap;
-        
+        width: 4em;
     }
 
+    
 }
