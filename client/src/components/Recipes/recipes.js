@@ -4,7 +4,7 @@ import { RecipeContext } from '../Context/context'
 import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
 import Button from '../Button/button'
-import './recipe.css'
+import './recipes.css'
 import { FaPizzaSlice } from 'react-icons/fa';
 import { GiCakeSlice } from 'react-icons/gi';
 import { GiNoodles } from 'react-icons/gi';

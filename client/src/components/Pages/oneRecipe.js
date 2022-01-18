@@ -2,6 +2,7 @@ import react from 'react'
 import { useParams } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
 import { RecipeContext } from '../Context/context'
+import './oneRecipe.css'
 
 export default function OneRecipe() {
 
@@ -23,9 +24,9 @@ export default function OneRecipe() {
 
     return (
         <div>
-            <h4>{recipe.title}</h4>
+            <h3>{recipe.title}</h3>
             <div className='recipeDetails'>
-                <div>
+                <div className='ingredient'>
                     <h5>Ingredient</h5>
                     {
                         recipe.ingredient?.map(
@@ -34,7 +35,8 @@ export default function OneRecipe() {
                             </ul>)
                     }
                 </div>
-                <div><h5>Preparation</h5>
+                <div className='preparation'>
+                    <h5>Preparation</h5>
                     {
                         recipe.preparation?.map(
                             item => <ul>

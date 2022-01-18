@@ -1,9 +1,10 @@
 import React from "react";
+import { FiHome } from 'react-icons/fi';
 
 export default function Home(){
     return(
         <div>
-            Home
+            <h2><FiHome/>. Home</h2>
         </div>
     )
 }
