@@ -8,7 +8,6 @@ export default function RecipeProvider({children}) {
 
 
     const [recipes, setRecipes]= useState([]);
-    const [noodle, setNoodle]= useState([]);
 
     const pullRecipes = async ()=>{
         console.log('Hello from pullRecipes/context')
@@ -18,6 +17,7 @@ export default function RecipeProvider({children}) {
         setRecipes([...response.data])
         console.log('data is: ',response.data)
         // console.log(recipes)
+
     }
 
   

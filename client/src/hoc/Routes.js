@@ -8,6 +8,7 @@ import NotFound from '../components/Pages/NotFound'
 import OneRecipe from '../components/Pages/oneRecipe'
 import { useEffect, useContext } from 'react'
 import {RecipeContext} from '../components/Context/context'
+import AddRecipe from '../components/Pages/addRecipe'
  
 export default function Routes() {
 
@@ -43,6 +44,12 @@ export default function Routes() {
           <Route path='/noodle' exact >
             <MainLayout>
               <Route component={Noodle} />
+            </MainLayout>
+          </Route>
+
+          <Route path='/addrecipe' exact >
+            <MainLayout>
+              <Route component={AddRecipe} />
             </MainLayout>
           </Route>
 
