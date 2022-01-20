@@ -1,7 +1,9 @@
 import React from "react";
-import { useContext, useState, useEffect } from 'react'
-import { RecipeContext } from '../Context/context'
+import { useState } from 'react'
+import './addRecipe.css'
 import axios from 'axios'
+import Button from '../Button/button'
+import { TiDelete } from 'react-icons/ti';
 
 export default function AddRecipe() {
 
@@ -51,10 +53,10 @@ export default function AddRecipe() {
         setText(e.target.value)
     }
 
-    const [RName, setRName] = useState('');
+    const [recipeTitle, setRecipeTitle] = useState('');
     const [RDescription, setRDescription] = useState('');
-    const [RIngredients2, setRIngredients2] = useState([]);
-    const [RRreparation4, setRPreparation4] = useState([]);
+    const [RIngredients, setRIngredients] = useState([]);
+    const [RPreparation, setRPreparation] = useState([]);
 
     const [addPost, setAddPost] = useState(
         {
@@ -70,9 +72,9 @@ export default function AddRecipe() {
 
 
     function setName() {
-        setRName(text);
+        setRecipeTitle(text);
         document.getElementById('nameInput').value = '';
-        // console.log('from setName',RName);
+        // console.log('from setName',recipeTitle);
     }
 
     function setDescription() {
@@ -83,17 +85,17 @@ export default function AddRecipe() {
 
     // useEffect(() => setIngredients(), []);
     function setIngredients() {
-        setRIngredients2(arr => [...arr, `${text}`]);
+        setRIngredients(arr => [...arr, `${text}`]);
         document.getElementById('ingredientInput').value = '';
         document.getElementById("ingredientInput").focus();
         // console.log('from setIngredients',RIngredients2)
     }
 
     function setPreparation() {
-        setRPreparation4(arr => [...arr, `${text}`]);
+        setRPreparation(arr => [...arr, `${text}`]);
         document.getElementById('preparationInput').value = '';
         document.getElementById("preparationInput").focus();
-        // console.log('from setPreparation',RRreparation4)
+        // console.log('from setPreparation',RPreparation)
     }
 
     const [addCategory, setAddCategory] = useState('Random');
@@ -103,7 +105,37 @@ export default function AddRecipe() {
     }
 
 
+    const ingredientsList = (arrayItem) => {
 
+        console.log(arrayItem)
+        return arrayItem.map((item, id) => (
+            <li key={id}>
+                {item}
+                <span className="deleteMe" onClick={() => {
+                    const oldData = [...RIngredients]
+                    oldData.splice(id, 1)
+                    setRIngredients([...oldData])
+                }}><TiDelete /></span>
+            </li>
+        ))
+    }
+
+
+    const reparationList = (RPreparationItem) => {
+
+        console.log(RPreparationItem)
+        return RPreparationItem.map((item, id) => (
+            <li key={id}>
+                {item}
+                <span className="deleteMe" onClick={() => {
+                    const oldRPreparation = [...RPreparation]
+                    oldRPreparation.splice(id, 1)
+                    setRPreparation([...oldRPreparation])
+                }}><TiDelete /></span>
+            </li>
+        ))
+    }
+    
 
 
     function handleClick() {
@@ -119,17 +151,17 @@ export default function AddRecipe() {
         <div>
             add Recipe
             <button onClick={addRecipe}>add Recipe</button>
+            <h2>Add New Recipe</h2>
 
-            <div id="form">
-                <h2 id="sBigger">Add New Recipe</h2>
+            <div className="form" id="form">
 
                 <div className="forFlexing">
                     <div className='inputForum'>
 
                         <div className='inputF'>
-                            <label>Recipe Name: </label>
+                            <label>Recipe Title: </label>
                             <input id='nameInput' type="text" onChange={handleChange}></input>
-                            <button onClick={setName}>add Recipe name</button>
+                            <Button onClick={setName} name={'add Title'}/>
                         </div>
                         <div className='inputF'>
                             <label>Choose Category: </label>
@@ -146,33 +178,49 @@ export default function AddRecipe() {
                         </div>
                         <div className='inputF'>
                             <label>Description: </label>
-                            <textarea id='descriptionInput' name="message" rows="10" cols="30" onChange={handleChange}></textarea>
-                            <button onClick={setDescription}>add Description</button>
+                            <textarea id='descriptionInput' name="message" rows="5" cols="30" onChange={handleChange}></textarea>
+                            <Button onClick={setDescription} name={'add Description'}/>
                         </div>
                         <div className='inputF'>
                             <label>Ingredients: </label>
                             <input id='ingredientInput' type="text" onChange={handleChange}></input>
-                            <button onClick={setIngredients}>add one</button>
+                            <Button onClick={setIngredients} name={'add one'}/>
                             <div id='ingShow'></div>
                         </div>
                         <div className='inputF'>
                             <label>Preparation: </label>
                             <input id='preparationInput' type="text" onChange={handleChange}></input>
-                            <button onClick={setPreparation}>add one</button>
+                            <Button onClick={setPreparation} name={'add one'} />
                         </div>
                         <div>
-                            <button className='addRecipeBtn' onClick={handleClick}>Add Recipe</button>
+                            <Button className='addRecipeBtn' onClick={handleClick} name={'Add Recipe'} />
                         </div>
                     </div>
-                    <div className='Preview'>
+                    <div>
                         <h3>Preview</h3>
-                        <div className="preview">
-                            <p>{RName}</p>
-                            <p>{addCategory}</p>
-                            <p>{RDescription}</p>
-                            {/* <ul>{List(RIngredients2)}</ul>
-                        <ol>{List(RRreparation4)}</ol> */}
-                        </div></div>
+                        <div>
+                            <div className="preview">
+                                <p>Title:</p>
+                                <p className="listItem">{recipeTitle}</p>
+                            </div>
+                            <div className="preview">
+                                <p>Recipe Category:</p>
+                                <p className="listItem">{addCategory}</p>
+                            </div>
+                            <div className="preview">
+                                <p>Recipe Description:</p>
+                                <p className="listItem">{RDescription}</p>
+                            </div>
+                            <div className="preview">
+                                <p>Ingredients</p>
+                                <ul className="listItem">{ingredientsList(RIngredients)}</ul>
+                            </div>
+                            <div className="preview">
+                                <p>Preparation</p>
+                                <ol className="listItem">{reparationList(RPreparation)}</ol>
+                            </div>
+                        </div>
+                        </div>
                 </div>
             </div>
         </div>

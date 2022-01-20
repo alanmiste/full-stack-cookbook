@@ -1,0 +1,44 @@
+@import '../vars.css';
+
+.form{
+    /* border: 2px solid var(--color-yellow); */
+    border-radius: 30px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    margin: 0em 10em;
+}
+
+.listItem{
+    border: 1px solid var(--color-yellow) ;
+    border-radius: 5px;
+    padding: 0.5em 2em;
+    margin: 0.3em;
+}
+
+.deleteMe{
+    padding: 1em;
+    color: tomato;
+}
+
+.preview{
+    margin-top: 1em;
+    
+}
+
+.forFlexing{
+    padding-top: 3em;
+    padding-bottom: 3em;    
+}
+
+.inputF{
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+button{
+}
