@@ -57,6 +57,7 @@ export default function AddRecipe() {
     const [RDescription, setRDescription] = useState('');
     const [RIngredients, setRIngredients] = useState([]);
     const [RPreparation, setRPreparation] = useState([]);
+    const [addCategory, setAddCategory] = useState('Random');
 
     const [addPost, setAddPost] = useState(
         {
@@ -98,7 +99,7 @@ export default function AddRecipe() {
         // console.log('from setPreparation',RPreparation)
     }
 
-    const [addCategory, setAddCategory] = useState('Random');
+   
     function handleCategory(e) {
         setAddCategory(e.target.value);
         console.log(addCategory);
@@ -135,13 +136,46 @@ export default function AddRecipe() {
             </li>
         ))
     }
-    
 
+  
 
-    function handleClick() {
+    const handleClick = async () =>{
 
-        console.log('handleclick')
-        console.log('this is category ', addCategory)
+        /* console.log('handleclick')
+
+        const recipe = {
+            "title": "Test recipe",
+            "ingredient": ["4 tbsp passata",
+                "1 garlic clove , crushed"],
+            "preparation": ["Heat the oven to 220C.",
+                "Mix the passata, garlic, olive"],
+            "published": false,
+            "category": "pizza",
+            "cooktime": "18 min",
+            "description": "This is an extremely easy."
+        }
+
+        const response = await axios.post('/recipes/add', recipe)
+
+        console.log('data= ', response) */
+
+        const recipe ={
+            'title': recipeTitle,
+            'ingredient': RIngredients,
+            'preparation': RPreparation,
+            'published': false,
+            'category': addCategory,
+            'cooktime': '15 min',
+            'description': RDescription
+        }
+
+        console.log('last state: ', recipe)
+
+        const response = await axios.post('/recipes/add', recipe)
+
+        console.log('data= ', response)
+
+        window.location.reload(false);
 
     }
 
@@ -161,7 +195,7 @@ export default function AddRecipe() {
                         <div className='inputF'>
                             <label>Recipe Title: </label>
                             <input id='nameInput' type="text" onChange={handleChange}></input>
-                            <Button onClick={setName} name={'add Title'}/>
+                            <Button funOnClick={setName} name={'add Title'} />
                         </div>
                         <div className='inputF'>
                             <label>Choose Category: </label>
@@ -179,21 +213,21 @@ export default function AddRecipe() {
                         <div className='inputF'>
                             <label>Description: </label>
                             <textarea id='descriptionInput' name="message" rows="5" cols="30" onChange={handleChange}></textarea>
-                            <Button onClick={setDescription} name={'add Description'}/>
+                            <Button funOnClick={setDescription} name={'add Description'} />
                         </div>
                         <div className='inputF'>
                             <label>Ingredients: </label>
                             <input id='ingredientInput' type="text" onChange={handleChange}></input>
-                            <Button onClick={setIngredients} name={'add one'}/>
+                            <Button funOnClick={setIngredients} name={'add one'} />
                             <div id='ingShow'></div>
                         </div>
                         <div className='inputF'>
                             <label>Preparation: </label>
                             <input id='preparationInput' type="text" onChange={handleChange}></input>
-                            <Button onClick={setPreparation} name={'add one'} />
+                            <Button funOnClick={setPreparation} name={'add one'} />
                         </div>
                         <div>
-                            <Button className='addRecipeBtn' onClick={handleClick} name={'Add Recipe'} />
+                            <Button className='addRecipeBtn' funOnClick={handleClick} name={'Add Recipe'} />
                         </div>
                     </div>
                     <div>
@@ -220,7 +254,7 @@ export default function AddRecipe() {
                                 <ol className="listItem">{reparationList(RPreparation)}</ol>
                             </div>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
