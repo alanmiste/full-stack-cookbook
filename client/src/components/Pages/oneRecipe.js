@@ -49,10 +49,3 @@ export default function OneRecipe() {
         </div>
     )
 }
-
-// recipes.map((item) => item._id == id ?
-//                     <div>
-//                         <h4>{item.title}</h4>
-//                         <p>{item.ingredient}</p>
-//                     </div>
-//                 : <>Hiii</>)

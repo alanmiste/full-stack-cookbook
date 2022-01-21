@@ -1,11 +1,11 @@
 import React from "react";
-import { FiHome } from 'react-icons/fi';
-import { useContext, useState, useEffect } from 'react'
+import { useContext } from 'react'
 import { RecipeContext } from '../Context/context'
 import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
 import Button from '../Button/button'
 import '../Recipes/recipes.css'
+import { FiHome } from 'react-icons/fi';
 import { FaPizzaSlice } from 'react-icons/fa';
 import { GiCakeSlice } from 'react-icons/gi';
 import { GiNoodles } from 'react-icons/gi';
@@ -15,13 +15,7 @@ export default function Home(){
 
     const { recipes } = useContext(RecipeContext) //fetch data from context.js
 
-    /* const [recipe, setRecipe] = useState([]) //this state to save recipes in it locally
 
-    useEffect(() => {
-        setRecipe([...recipes.filter(item => item.category === categoryType)])
-        //set the recipes in recipe after filtering it consider of category
-    }, [])
- */
     return(
         <div>
             <h2><FiHome/>. Home</h2>

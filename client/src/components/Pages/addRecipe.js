@@ -99,7 +99,7 @@ export default function AddRecipe() {
         // console.log('from setPreparation',RPreparation)
     }
 
-   
+
     function handleCategory(e) {
         setAddCategory(e.target.value);
         console.log(addCategory);
@@ -137,9 +137,9 @@ export default function AddRecipe() {
         ))
     }
 
-  
 
-    const handleClick = async () =>{
+
+    const handleClick = async () => {
 
         /* console.log('handleclick')
 
@@ -159,7 +159,7 @@ export default function AddRecipe() {
 
         console.log('data= ', response) */
 
-        const recipe ={
+        const recipe = {
             'title': recipeTitle,
             'ingredient': RIngredients,
             'preparation': RPreparation,
@@ -183,7 +183,7 @@ export default function AddRecipe() {
 
     return (
         <div>
-           {/*  add Recipe
+            {/*  add Recipe
             <button onClick={addRecipe}>add Recipe</button> */}
             <h2>Add New Recipe</h2>
 
@@ -226,9 +226,6 @@ export default function AddRecipe() {
                             <input id='preparationInput' type="text" onChange={handleChange}></input>
                             <Button funOnClick={setPreparation} name={'add one'} />
                         </div>
-                        <div>
-                            <Button className='addRecipeBtn' funOnClick={handleClick} name={'Add Recipe'} />
-                        </div>
                     </div>
                     <div>
                         <h3>Preview</h3>
@@ -252,6 +249,9 @@ export default function AddRecipe() {
                             <div className="preview">
                                 <p>Preparation</p>
                                 <ol className="listItem">{reparationList(RPreparation)}</ol>
+                            </div>
+                            <div>
+                                <Button className='addRecipeBtn' funOnClick={handleClick} name={'Add Recipe'} />
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,8 @@
+.text {
+    border: 1px solid gray;
+    color: lightslategray;
+    border-radius: 10px;
+    display: block;
+    margin-top: 75px;
+    padding: 10px;
+  }

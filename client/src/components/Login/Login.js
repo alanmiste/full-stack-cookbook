@@ -2,12 +2,16 @@ import React from 'react';
 import {useState} from 'react'
 import './login.css'
 import AddRecipe from '../Pages/addRecipe'
+import Delete from '../Delete/delete'
+
 
 export default function Login() {
     
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
   
+    const un = process.env.REACT_APP_USERNAME;
+    console.log('env=', un)
     // User Login info
     const database = [
       {
@@ -82,6 +86,7 @@ export default function Login() {
           {isSubmitted ? <div>
               User is successfully logged in
               <AddRecipe />
+              <Delete />
               </div> : renderForm}
         </div>
       </div>

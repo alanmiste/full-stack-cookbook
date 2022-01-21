@@ -52,5 +52,14 @@ router.post('/add', async (req,res)=> {
     res.send('hello from add route')
 })
 
+router.delete('/delete', async (req,res)=> {
+    console.log('delete: body is ', req.body)
+        
+    const deleteRecipe = await Recipes.findByIdAndDelete(req.query.id) 
+    console.log('Deleted Recipe is ', deleteRecipe)
+
+    res.send('hello from delete route')
+})
+
 
 module.exports = router;

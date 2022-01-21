@@ -1,30 +1,31 @@
 import React from "react";
-import { useContext, useState, useEffect } from 'react'
+import { useContext } from 'react'
 import { RecipeContext } from '../Context/context'
 import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
 import Button from '../Button/button'
-import './recipes.css'
+import '../Recipes/recipes.css'
+import { FiHome } from 'react-icons/fi';
 import { FaPizzaSlice } from 'react-icons/fa';
 import { GiCakeSlice } from 'react-icons/gi';
 import { GiNoodles } from 'react-icons/gi';
-import Stars from '../Stars/stars'
+import axios from 'axios'
 
 
-export default function Recipes({ categoryType }) {
+export default function Delete(){
 
     const { recipes } = useContext(RecipeContext) //fetch data from context.js
 
-    const [recipe, setRecipe] = useState([]) //this state to save recipes in it locally
+    const handleDelete = async (idx)=>{
 
-    useEffect(() => {
-        setRecipe([...recipes.filter(item => item.category === categoryType)])
-        //set the recipes in recipe after filtering it consider of category
-    }, [])
+        const data = await axios.delete(`/recipes/delete?_id=${idx}`)
+        console.log('idx is', idx)
+    }
 
-
-    return (
-        <div className="recipeTitle">{recipe?.map((item, id) => <div >
+    return(
+        <div>
+            <h2><FiHome/>. Delete</h2>
+            <div className="recipeTitle">{recipes?.map((item, id) => <div >
             <Card
                 bg={'dark'}
                 key={id}
@@ -38,10 +39,9 @@ export default function Recipes({ categoryType }) {
                     <Card.Text>
                         <div>{item.description}</div>
                         <div>Cook Time: {item.cooktime}</div>
-                        <Stars />
                     </Card.Text>
-                    <Link key={item._id} to={`/oneRecipe/${item._id}`}>
-                        <Button className={'btn'} name={'Read more'} />
+                    <Link key={item._id} to={`/`}>
+                        <Button className={'btn'} name={'Delete'} funOnClick={handleDelete(item._id)}/>
                     </Link>
                 </Card.Body>
             </Card>
@@ -50,6 +50,6 @@ export default function Recipes({ categoryType }) {
         )}
 
         </div>
-
+        </div>
     )
 }
