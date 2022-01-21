@@ -9,6 +9,7 @@ import OneRecipe from '../components/Pages/oneRecipe'
 import { useEffect, useContext } from 'react'
 import {RecipeContext} from '../components/Context/context'
 import AddRecipe from '../components/Pages/addRecipe'
+import LoginPage from "../components/Pages/loginPage";
  
 export default function Routes() {
 
@@ -47,9 +48,9 @@ export default function Routes() {
             </MainLayout>
           </Route>
 
-          <Route path='/addrecipe' exact >
+          <Route path='/loginPage' exact >
             <MainLayout>
-              <Route component={AddRecipe} />
+              <Route component={LoginPage} />
             </MainLayout>
           </Route>
 

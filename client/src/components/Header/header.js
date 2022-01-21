@@ -16,7 +16,7 @@ export default function Header(){
            {/* <LoginButton className='loginBtn' btnname={'Login'} /> */}
            <React.Fragment>
         
-            <NavLink className='loginBtn' to="/addrecipe">
+            <NavLink className='loginBtn' to="/loginPage">
               Login
             </NavLink>
            

@@ -19,7 +19,7 @@ export default function AddRecipe() {
     // }
 
 
-    const addRecipe = async () => {
+    /* const addRecipe = async () => {
         console.log('Hello from addRecipes')
 
         // "_id":{"$oid":"61db37f9ac938a7765f06767"}
@@ -40,7 +40,7 @@ export default function AddRecipe() {
         console.log('data= ', response)
 
         window.location.reload(false); //to refresh the page after the recipe has been added
-    }
+    } */
 
     //---------------------------------------------------------
 
@@ -183,8 +183,8 @@ export default function AddRecipe() {
 
     return (
         <div>
-            add Recipe
-            <button onClick={addRecipe}>add Recipe</button>
+           {/*  add Recipe
+            <button onClick={addRecipe}>add Recipe</button> */}
             <h2>Add New Recipe</h2>
 
             <div className="form" id="form">
