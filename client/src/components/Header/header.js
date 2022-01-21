@@ -1,10 +1,26 @@
 import React from "react";
 import './header.css'
+// 'import Button from '../Button/button''
+import { NavLink } from "react-router-dom";
 
 export default function Header(){
+
+    const LoginButton =({btnname})=>{
+        return(
+            <button>{btnname}</button>
+        )
+    }
+
     return(
         <div className="header">
-            Header
+           {/* <LoginButton className='loginBtn' btnname={'Login'} /> */}
+           <React.Fragment>
+        
+            <NavLink className='loginBtn' to="/">
+              Login
+            </NavLink>
+           
+            </React.Fragment>
         </div>
     )
 }

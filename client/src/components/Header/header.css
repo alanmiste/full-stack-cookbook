@@ -2,8 +2,38 @@
 
 .header{
     width: 99%;
-    height: 200px;
+    height: 23em;
     border-radius: 10px;
     background-color: var(--color-yellow);
+    background-image: url('../Photos/cbHeader.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     margin: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.loginBtn{
+    width: 10em;
+    height: 3em;
+    border: 2px var(--color-black) solid;
+	color: var(--color-black);
+    border-radius: 15px;
+    font-family:'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+    text-decoration: none;
+}
+
+.loginBtn:hover{
+    background-color: var(--color-black);
+	color: var(--color-yellow) !important;
+    transition: all ease 0.75s;
+    cursor: pointer;
 }
