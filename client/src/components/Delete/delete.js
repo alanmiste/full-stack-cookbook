@@ -19,6 +19,9 @@ export default function Delete(){
     const handleDelete = async (idx)=>{
 
         const data = await axios.delete(`/recipes/delete?_id=${idx}`)
+        // if(data.data.sucsess){
+            
+        // }
         console.log('idx is', idx)
     }
 
@@ -41,7 +44,7 @@ export default function Delete(){
                         <div>Cook Time: {item.cooktime}</div>
                     </Card.Text>
                     <Link key={item._id} to={`/`}>
-                        <Button className={'btn'} name={'Delete'} funOnClick={handleDelete(item._id)}/>
+                        <Button className={'btn'} name={'Delete'} funOnClick={()=>handleDelete(item._id)}/>
                     </Link>
                 </Card.Body>
             </Card>

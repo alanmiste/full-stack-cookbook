@@ -53,12 +53,17 @@ router.post('/add', async (req,res)=> {
 })
 
 router.delete('/delete', async (req,res)=> {
-    console.log('delete: body is ', req.body)
+    console.log('delete: body is ', req.query)
         
-    const deleteRecipe = await Recipes.findByIdAndDelete(req.query.id) 
+    const deleteRecipe = await Recipes.findByIdAndDelete(req.query._id) 
+    // const deleteRecipe = {} 
     console.log('Deleted Recipe is ', deleteRecipe)
 
-    res.send('hello from delete route')
+    if(deleteRecipe)
+    {res.send( {sucsess: true})}
+    else{
+        res.send({sucsessfuls: 'Error'})
+    }
 })
 
 
