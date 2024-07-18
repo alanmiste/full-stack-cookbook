@@ -1,70 +1,54 @@
-const express = require('express')
+const express = require("express");
 const router = express.Router();
 
-
 // MIDDLEWARES
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 
-router.use(bodyParser.json()) // to parse json
-router.use(bodyParser.urlencoded({extended:true}))
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
 
-
-
-const Mongoose = require('mongoose')
+const Mongoose = require("mongoose");
 
 // MODELS
-const Recipes = require('../models/recipesModel');
-
+const Recipes = require("../models/recipesModel");
 
 // ROUTES
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
+  console.log("Find route req.query", req.query);
 
-    console.log('Find route req.query', req.query)
+  const data = await Recipes.find();
+  res.send(data);
+});
 
-    // const data = await Recipes.find({category: req.query.category})
-    const data = await Recipes.find()
+router.get("/find", async (req, res) => {
+  const data = await Recipes.find(req.query);
+  console.log("Data ...... ", data);
+  res.send(data);
+});
 
-    // console.log('this is data from api',data)
-   
-    res.send(data)
-    
-})
+router.post("/add", async (req, res) => {
+  console.log("add route: body is ", req.body);
 
+  const newRecipe = new Recipes(req.body); // to create the body of the object that will be added to DB
+  console.log("add route: body is ", newRecipe);
 
-router.get('/find', async (req, res) => {
+  const data = await newRecipe.save(); // to save the recipe in the DB
 
-    console.log('Find route req.query', req.query)
+  res.send("hello from add route");
+});
 
-    const data = await Recipes.find(req.query)
-    console.log('Data ...... ', data)
-    res.send(data)
-    
-})
+router.delete("/delete", async (req, res) => {
+  console.log("delete: body is ", req.query);
 
-router.post('/add', async (req,res)=> {
-    console.log('add route: body is ', req.body)
-    
-    const newRecipe = new Recipes(req.body) // to create the body of the object that will be added to DB
-    console.log('add route: body is ', newRecipe)
+  const deleteRecipe = await Recipes.findByIdAndDelete(req.query._id);
 
-    const data = await newRecipe.save() // to save the recipe in the DB
+  console.log("Deleted Recipe is ", deleteRecipe);
 
-    res.send('hello from add route')
-})
-
-router.delete('/delete', async (req,res)=> {
-    console.log('delete: body is ', req.query)
-        
-    const deleteRecipe = await Recipes.findByIdAndDelete(req.query._id) 
-    // const deleteRecipe = {} 
-    console.log('Deleted Recipe is ', deleteRecipe)
-
-    if(deleteRecipe)
-    {res.send( {sucsess: true})}
-    else{
-        res.send({sucsessfuls: 'Error'})
-    }
-})
-
+  if (deleteRecipe) {
+    res.send({ sucsess: true });
+  } else {
+    res.send({ sucsessfuls: "Error" });
+  }
+});
 
 module.exports = router;
